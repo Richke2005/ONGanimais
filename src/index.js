@@ -1,12 +1,8 @@
-const { initializeApp, applicationDefault, cert } = require('firebase-admin/app');
-const { getFirestore, Timestamp, FieldValue } = require('firebase-admin/firestore');
+import{ initializeApp } from 'firebase/app';
+import { getFirestore, collection, getDocs, addDoc } from "@firebase/firestore";
 
-import { getAnalytics } from "firebase/analytics";
 
-const serviceAccount = require('./path/to/serviceAccountKey.json');
-
- initializeApp({
-     //Serve para o firebase entender que nosso bakend tem permissão de acessar o banco
+initializeApp({
   apiKey: "AIzaSyAECRdKsavkWsQ9m24moXyNwIvwcGx-Mcs",
   authDomain: "ong-animais.firebaseapp.com",
   projectId: "ong-animais",
@@ -14,18 +10,28 @@ const serviceAccount = require('./path/to/serviceAccountKey.json');
   messagingSenderId: "84663283469",
   appId: "1:84663283469:web:90abd94789303891c6ca44",
   measurementId: "G-CH44D864Z1"
- });
+})
+ export const db = getFirestore();
+ 
+ const usersRef = collection(db, 'users');
 
-const app = initializeApp();
+// getDocs(usersRef)
+//   .then((snapshot) => {
+//     snapshot.docs.forEach(doc => {
+//       console.log(doc)
+//     })
+    
+// }).catch(error =>{
+//   console.log(error.message)
+// })
 
-const analytics= getAnalytics(app)
 
-const db = getFirestore();
+// Add a new document with a generated id.
+// const docRef =  addDoc(collection(db, "users"), {
+//   name: "Tokyo",
+//   country: "Japan"
+// });
+// console.log("Document written with ID: ", docRef.id);
 
-const docRef = db.collection('users').doc('alovelace');
 
-await docRef.set({
-  first: 'Ada',
-  last: 'Lovelace',
-  born: 1815
-});
+
