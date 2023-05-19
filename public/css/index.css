@@ -28,24 +28,90 @@ section video{
 
 
 /*standardizing some references*/
+
 .content-align-center{
-    display: flex;
     width: 100%;
     height: 100%;
-    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
     align-items: center;
 }
 
-
-.align-collum{
+/*pages title ------------------------------------------------*/
+.pages-title{
+    margin-top: 2%;
     margin-left: 5%;
-    margin-right: 10%;
-    border-bottom: solid black;
+    margin-right: 10%; 
+    margin-bottom: 5%;
+    color: #f0a818;
+    border-bottom: solid  #55aaff;
+  
+}
+/*blocos de conteúdo ------------------------------------------------*/
+
+.contents-block{
+    width: 45%;
+    height: 45%;
+    margin: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    background: linear-gradient(45deg, #181848, #7890a8,  #f0a818 );
+    border-radius: 10px;
 }
 
+.images-in-block{
+    width: 49.5%;
+    height: 100%;
+    display: flex;
+    align-items: center;
 
-
-:root{
-    --toLeft: 25%;
-    --toRigth: 25%
 }
+
+.images-in-block img{
+    object-fit: cover;
+    position: static;
+    width: 70%;
+    height: 70%;
+}
+
+.texts-in-block{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    text-align: left;
+    
+}
+
+/*Help Content -----------------------------------*/
+.help-content{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 50%;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+#btn-yourPart{
+    padding: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: solid 1px rgb(69, 69, 255);
+    border-radius: 5px;
+    background-color: white;
+    transition: 1s;
+
+}
+
+#btn-yourPart:hover{
+    background-color:  #55aaff;
+}
+
+#btn-yourPart:active{
+    padding: 20px;
+}
+

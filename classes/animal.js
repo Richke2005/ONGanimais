@@ -1,43 +1,47 @@
-class Animal{
-    constructor(raca, tamanho, descricao, isVacinacao){
-        this.raca = raca;
-        this.tamanho = tamanho;
-        this.descricao = descricao;
-        this.isVacinacao = isVacinacao;
-        this.dataCadastro = new Date()
+export class Animal{
+    race
+    #size
+    #description
+    #registerDate
+    isVaccinated
+    constructor(race, size, description, isVaccinated){
+        this.race = race;
+        this.#size = size;
+        this.#description = description;
+        this.isVaccinated = isVaccinated;
+        this.#registerDate = new Date()
     }
 
-    getRaca(){
-        return raca;
+    get getRace(){
+        return this.race;
     }
 
-    setRaca(raca){
-        this.raca = raca;
+    set setRace(race){
+        this.race = race;
     }
 
-    getTamanho(){
-        return tamanho;
+    get getSize(){
+        return this.#size;
     }
 
-    setTamanho(tam){
-        this.tamanho = tam;
+    setSize(width, height){
+        this.#size = {
+            width: width,
+            height: height
+        }
     }
 
-    getDescricao(){
-        return this.descricao;
+    get getDesciption(){
+        return this.#description;
     }
 
-    setDescricao(descricao){
-        this.descricao = descricao
+    set setDescription(description){
+        this.#description = description;
     }
 
-    getDataCad(){
-        return this.dataCadastro
+    get getRegisterDate(){
+        return this.#registerDate;
     }
 
 }
-
-
-
-let animal1 = new Animal('puodle', 'medio', 'peguei na rua', true);
 

@@ -10,6 +10,16 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./DAO/animalDAO.js":
+/*!**************************!*\
+  !*** ./DAO/animalDAO.js ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _src_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../src/index */ \"./src/index.js\");\n/* harmony import */ var _firebase_firestore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @firebase/firestore */ \"./node_modules/@firebase/firestore/dist/index.esm2017.js\");\n\r\n\r\n\r\n\r\nconst animalsRef = (0,_firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.collection)(_src_index__WEBPACK_IMPORTED_MODULE_0__.db, 'animals')\r\n\r\n;(0,_firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.getDocs)(animalsRef).then((snapshots) =>{\r\n snapshots.docs.forEach((doc)=>{\r\n    console.log(doc.data())\r\n })\r\n})\r\n\n\n//# sourceURL=webpack://siteong/./DAO/animalDAO.js?");
+
+/***/ }),
+
 /***/ "./node_modules/@firebase/firestore/dist/index.esm2017.js":
 /*!****************************************************************!*\
   !*** ./node_modules/@firebase/firestore/dist/index.esm2017.js ***!
@@ -182,7 +192,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/index.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./DAO/animalDAO.js");
 /******/ 	
 /******/ })()
 ;

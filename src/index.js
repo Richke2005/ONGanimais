@@ -13,8 +13,11 @@ initializeApp({
   measurementId: "G-CH44D864Z1"
 })
  export const db = getFirestore();
+
  
- const usersRef = collection(db, 'users');
+ 
+ //const usersRef = collection(db, 'users');
+
 
 // getDocs(usersRef)
 //   .then((snapshot) => {
