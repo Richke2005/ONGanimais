@@ -1,0 +1,51 @@
+/*inicial configs*/
+*{
+    margin: 0 auto;
+    padding: 0 auto; 
+}
+
+body{
+    overflow-x: hidden;
+}
+
+section{
+    width: 100vw;
+    height: 100vh;
+}
+
+
+#title{
+    position: absolute;
+    display: flex;
+    text-align: center;
+}
+
+section video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/*standardizing some references*/
+.content-align-center{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.align-collum{
+    margin-left: 5%;
+    margin-right: 10%;
+    border-bottom: solid black;
+}
+
+
+
+:root{
+    --toLeft: 25%;
+    --toRigth: 25%
+}
