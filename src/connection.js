@@ -1,8 +1,6 @@
 import{ initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs, addDoc } from "@firebase/firestore";
 
-
-
 initializeApp({
   apiKey: "AIzaSyAECRdKsavkWsQ9m24moXyNwIvwcGx-Mcs",
   authDomain: "ong-animais.firebaseapp.com",
@@ -31,11 +29,11 @@ initializeApp({
 
 
 // Add a new document with a generated id.
-// const docRef =  addDoc(collection(db, "users"), {
-//   name: "Tokyo",
-//   country: "Japan"
-// });
-// console.log("Document written with ID: ", docRef.id);
+//  const docRef =  addDoc(collection(db, "users"), {
+//    name: "Tokyo",
+//    country: "Japan"
+//  });
+//  console.log("Document written with ID: ", docRef.id);
 
 
 

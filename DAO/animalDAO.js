@@ -1,11 +1,25 @@
-import { db } from '../src/index';
-import { collection, getDocs } from '@firebase/firestore';
+import { db } from '../src/connection';
+import { collection, getDocs, addDoc } from '@firebase/firestore';
 
 
-const animalsRef = collection(db, 'animals')
+// Add a new document with a generated id.
 
-getDocs(animalsRef).then((snapshots) =>{
- snapshots.docs.forEach((doc)=>{
-    console.log(doc.data())
- })
+
+function addAnimal(Animal){ 
+   const docRef =  addDoc(collection(db, "animals"), 
+   {
+   race: Animal.getRace,
+   size: Animal.getSize, 
+   description: Animal.getDescription,
+   registerDate: Animal.getRegisterDate, 
+   isVaccinated: Animal.getIsVaccinated
+   }
+ )
+ .catch(err => {console.log(err)})
+ .finally(() => { console.log("Document written with ID: ", docRef.id)
 })
+
+}
+
+
+ 

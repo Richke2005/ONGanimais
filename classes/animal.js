@@ -31,7 +31,7 @@ export class Animal{
         }
     }
 
-    get getDesciption(){
+    get getDescription(){
         return this.#description;
     }
 
@@ -39,9 +39,20 @@ export class Animal{
         this.#description = description;
     }
 
+    get getIsVaccinated(){
+        return this.isVaccinated;
+    }
+
+    set setIsVaccinated(bool){
+        this.isVaccinated = bool;
+    }
+
     get getRegisterDate(){
         return this.#registerDate;
     }
 
 }
+
+
+
 

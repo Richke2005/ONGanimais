@@ -4,11 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="module" src="../../dist/donate.bundle.js"></script>
+    <script type="module" src="../js/donate.js"></script>
     
     <title>Document</title>
 </head>
 <body>
-    
+    <form action="">
+        <label for="race">Raça</label>
+        <input type="text" name="" id="race">
+
+        <label for="size">Tamanho</label>
+        <input type="text" name="" id="size">
+        
+        <label for="isVaccinated">É vacinado?</label>
+        <input type="radio" name="isVaccinated" id="rTrue" value="true">Sim
+        <input type="radio" name="isVaccinated" id="rFalse" value="false">Não 
+        
+        <label for="description">Descrição</label>
+        <input type="text" name="description" id="description">
+        
+    </form>
+    <button id="btnAdd">adicionar animal</button>
 </body>
 </html>
