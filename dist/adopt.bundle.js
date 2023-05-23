@@ -10,26 +10,6 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./DAO/animalDAO.js":
-/*!**************************!*\
-  !*** ./DAO/animalDAO.js ***!
-  \**************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"addAnimal\": () => (/* binding */ addAnimal)\n/* harmony export */ });\n/* harmony import */ var _src_connection__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../src/connection */ \"./src/connection.js\");\n/* harmony import */ var _firebase_firestore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @firebase/firestore */ \"./node_modules/@firebase/firestore/dist/index.esm2017.js\");\n\r\n\r\n\r\n\r\n// Add a new document with a generated id.\r\n\r\n\r\nfunction addAnimal(Animal){\r\n   const docRef =  (0,_firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.addDoc)((0,_firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.collection)(_src_connection__WEBPACK_IMPORTED_MODULE_0__.db, \"animals\"),\r\n   {\r\n   race: Animal.getRace,\r\n   size: Animal.getSize,\r\n   description: Animal.getDescription,\r\n   registerDate: Animal.getRegisterDate,\r\n   isVaccinated: Animal.getIsVaccinated\r\n   }\r\n   \r\n )\r\n .catch(err => {console.log(err)})\r\n .finally(() => { console.log(\"Document written with ID: \", docRef.id)\r\n})\r\n\r\n}\r\n\r\n\r\n \n\n//# sourceURL=webpack://siteong/./DAO/animalDAO.js?");
-
-/***/ }),
-
-/***/ "./classes/animal.js":
-/*!***************************!*\
-  !*** ./classes/animal.js ***!
-  \***************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"Animal\": () => (/* binding */ Animal)\n/* harmony export */ });\nclass Animal{\r\n    race\r\n    #size\r\n    #description\r\n    #registerDate\r\n    isVaccinated\r\n    constructor(race, size, description, isVaccinated){\r\n        this.race = race;\r\n        this.#size = size;\r\n        this.#description = description;\r\n        this.isVaccinated = isVaccinated;\r\n        this.#registerDate = new Date()\r\n    }\r\n\r\n    get getRace(){\r\n        return this.race;\r\n    }\r\n\r\n    set setRace(race){\r\n        this.race = race;\r\n    }\r\n\r\n    get getSize(){\r\n        return this.#size;\r\n    }\r\n\r\n    setSize(width, height){\r\n        this.#size = {\r\n            width: width,\r\n            height: height\r\n        }\r\n    }\r\n\r\n    get getDescription(){\r\n        return this.#description;\r\n    }\r\n\r\n    set setDescription(description){\r\n        this.#description = description;\r\n    }\r\n\r\n    get getIsVaccinated(){\r\n        return this.isVaccinated;\r\n    }\r\n\r\n    set setIsVaccinated(bool){\r\n        this.isVaccinated = bool;\r\n    }\r\n\r\n    get getRegisterDate(){\r\n        return this.#registerDate;\r\n    }\r\n\r\n}\r\n\r\n\r\n\r\n\r\n\n\n//# sourceURL=webpack://siteong/./classes/animal.js?");
-
-/***/ }),
-
 /***/ "./node_modules/@firebase/firestore/dist/index.esm2017.js":
 /*!****************************************************************!*\
   !*** ./node_modules/@firebase/firestore/dist/index.esm2017.js ***!
@@ -50,13 +30,13 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./public/js/donate.js":
-/*!*****************************!*\
-  !*** ./public/js/donate.js ***!
-  \*****************************/
+/***/ "./public/js/animal-list.js":
+/*!**********************************!*\
+  !*** ./public/js/animal-list.js ***!
+  \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _DAO_animalDAO__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../DAO/animalDAO */ \"./DAO/animalDAO.js\");\n/* harmony import */ var _classes_animal_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../classes/animal.js */ \"./classes/animal.js\");\n//TODO: importar a classe e as funções necessárias\r\n\r\n\r\n\r\n\r\n\r\n const btnAdd = document.getElementById('btnAdd');\r\n\r\n btnAdd.addEventListener('click', () => {\r\n     let isVaccinated;\r\n     const txtRace = document.getElementById('race');\r\n     const txtSize = document.getElementById('size');\r\n     const description = document.getElementById('description');\r\n\r\n     document.getElementsByName('isVaccinated').forEach(element => {\r\n        if (element.checked){\r\n            isVaccinated = element.value;\r\n        }\r\n    })\r\n\r\n    const animal = new _classes_animal_js__WEBPACK_IMPORTED_MODULE_1__.Animal(txtRace.value, txtSize.value, description.value, isVaccinated)\r\n    ;(0,_DAO_animalDAO__WEBPACK_IMPORTED_MODULE_0__.addAnimal)(animal);\r\n })\n\n//# sourceURL=webpack://siteong/./public/js/donate.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _src_connection__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../src/connection */ \"./src/connection.js\");\n/* harmony import */ var _firebase_firestore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @firebase/firestore */ \"./node_modules/@firebase/firestore/dist/index.esm2017.js\");\n\r\n\r\n\r\n\r\n\r\nconst animalList = document.querySelector('#animal-list');\r\n\r\nfunction renderAnimal(doc){\r\n    let li = document.createElement('li');\r\n    let race = document.createElement('span');\r\n    let size = document.createElement('span');\r\n    let description = document.createElement('span');\r\n    let isVaccinated = document.createElement('span');\r\n\r\n    li.setAttribute('data-id', doc.id);\r\n\r\n    race.className = 'title'\r\n    race.textContent = doc.data().race;\r\n    size.innerHTML = `Altura: ${doc.data().size.height}m <br> Largura: ${doc.data().size.width}m`\r\n    description.textContent = doc.data().description;\r\n    if(doc.data().isVaccinated == true){\r\n        isVaccinated.textContent = `Vacinação: Sim`\r\n    }else{\r\n        isVaccinated.textContent = `Vacinação: Nâo`\r\n    }\r\n\r\n    li.appendChild(race);\r\n    li.appendChild(size);\r\n    li.appendChild(description);\r\n    li.appendChild(isVaccinated);\r\n\r\n    animalList.appendChild(li);\r\n}\r\n\r\n\r\nconst animalsRef = (0,_firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.collection)(_src_connection__WEBPACK_IMPORTED_MODULE_0__.db, 'animals');\r\n(0,_firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.getDocs)(animalsRef).then( snapshot => {\r\n    snapshot.docs.forEach( (doc) => {\r\n        renderAnimal(doc);\r\n    });\r\n})\r\n\r\n\n\n//# sourceURL=webpack://siteong/./public/js/animal-list.js?");
 
 /***/ }),
 
@@ -212,7 +192,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./public/js/donate.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./public/js/animal-list.js");
 /******/ 	
 /******/ })()
 ;

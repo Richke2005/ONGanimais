@@ -4,11 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="module" src="../js/donate.js"></script>
-    
-    <title>Document</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <script type="module" src="../src/teste.js"></script>
+   
+    <!-- <script  src="../dist/bundle.js"></script> -->
+    <title>Donate-an-animal</title>
 </head>
 <body>
+    <nav>
+        <Header>
+           <a class="logo" href=""> 4 </a>
+           <div class="mobile-menu">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+           </div>
+           <ul class="nav-list">
+            <li><a href="../index.html">Home</a></li>
+               <li><a href="./donate-animal.html">Doar</a></li>
+               <li><a id="action-button" href="./adopt-animal.html">Acolher um animal</a></li>
+           </ul>
+       </Header>   
+   </nav>
+
     <form action="">
         <label for="race">Raça</label>
         <input type="text" name="" id="race">
@@ -22,8 +40,9 @@
         
         <label for="description">Descrição</label>
         <input type="text" name="description" id="description">
-        
+        <button id="btnAdd">adicionar animal</button>
     </form>
-    <button id="btnAdd">adicionar animal</button>
+    
+    <script  src="../../dist/donate.bundle.js"></script>
 </body>
 </html>

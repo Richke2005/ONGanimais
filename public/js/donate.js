@@ -1,20 +1,23 @@
 //TODO: importar a classe e as funções necessárias
+import { addAnimal } from '../../DAO/animalDAO'
+import { Animal } from '../../classes/animal.js'
 
-const btnAdd = document.getElementById('btnAdd');
 
 
-btnAdd.addEventListener('click', () => {
-    const txtRace = document.getElementById('race');
-    const txtSize = document.getElementById('size');
-    const description = document.getElementById('description');
+ const btnAdd = document.getElementById('btnAdd');
 
-    console.log(`raça ${txtRace.value}, tamanho ${txtSize.value}, description ${description.value}`);
+ btnAdd.addEventListener('click', () => {
+     let isVaccinated;
+     const txtRace = document.getElementById('race');
+     const txtSize = document.getElementById('size');
+     const description = document.getElementById('description');
 
-    const radios = document.getElementsByName('isVaccinated')
-    radios.forEach(element => {
-        if(element.checked){
-            let isvacinado = element.value
+     document.getElementsByName('isVaccinated').forEach(element => {
+        if (element.checked){
+            isVaccinated = element.value;
         }
     })
-    
-})
+
+    const animal = new Animal(txtRace.value, txtSize.value, description.value, isVaccinated)
+    addAnimal(animal);
+ })
