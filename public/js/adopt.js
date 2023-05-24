@@ -17,7 +17,7 @@ function renderAnimal(doc){
     race.className = 'title'
     race.textContent = doc.data().race;
     size.innerHTML = `Altura: ${doc.data().size.height}m <br> Largura: ${doc.data().size.width}m`
-    description.textContent = doc.data().description;
+    description.textContent =`Descrição: ${doc.data().description}` ;
     if(doc.data().isVaccinated == true){
         isVaccinated.textContent = `Vacinação: Sim`
     }else{
