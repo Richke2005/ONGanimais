@@ -79,6 +79,8 @@ header{
   }
 
   #action-button{
+    display: flex;
+    flex-wrap: nowrap;
     background-color: #f0a818;
     padding: 0.5rem 1rem;
     border: none;
@@ -163,6 +165,8 @@ header{
       display: flex;
       flex-wrap: wrap;
     }
+
+
   }
     .nav-list.active{
       transform: translateX(0);
@@ -205,7 +209,6 @@ header{
 
 /*pages title ------------------------------------------------*/
 .pages-title{
-    margin-top: 2%;
     margin-left: 5%;
     margin-right: 10%; 
     margin-bottom: 5%;
@@ -220,13 +223,11 @@ header{
     height: 45%;
     margin: auto;
     display: flex;
-    flex-wrap: nowrap;
-    background: linear-gradient(45deg, #181848, #7890a8,  #f0a818 );
-    border-radius: 10px;
+    
 }
 
 .images-in-block{
-    width: 49.5%;
+    width: 40%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -236,12 +237,13 @@ header{
 .images-in-block img{
     object-fit: cover;
     position: static;
+    border-radius: 10px;
     width: 70%;
     height: 70%;
 }
 
 .texts-in-block{
-    width: 50%;
+    width: 60%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -265,8 +267,8 @@ header{
 
 #animal-list{
   display: flex;
+  flex-direction: column;
   list-style: none;
-  display: flex;
   flex-wrap: wrap;
 }
 
@@ -277,7 +279,6 @@ header{
   flex-direction: column;
   background-color: var(--color3);
   border-radius: 10px;
-
 }
 
 #animal-list li span{
@@ -324,8 +325,6 @@ header{
 .donate-forms{
   margin-top: 12vh;
   width: 50%;
-  /* padding: 2rem; */
-  background-color: var(--color3);
   display: flex;
   flex-direction: column;
 }
@@ -334,33 +333,32 @@ header{
   margin-top: 4px;
   margin-bottom: 4px;
   font-size: 1.5rem;
-  border-bottom: 5px solid var(--color4);
+  border-bottom: 2px solid #181848;
   
 }
 
 #description{
  width: 90%;
  border-radius: 5px;
-
+ background-color: whitesmoke;
 }
 .donate-forms input{
   width: 50%;
   margin-top: 4px;
   margin-bottom: 4px;
   padding: 0.5rem;
-  border-radius: 5px;
-  border: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background-color: whitesmoke;
 }
 
-.donate-forms input:active{
-  
-}
+
 
 #btnAdd{
-  margin-top: 10px;
-  margin-bottom: 10px;
-  background-color: var(--color4);
-  padding: 0.5rem 1rem;
+  margin: 2%;
+  background-color:  #f0a818;
+  padding: 0.5rem 10rem;
   border: none;
   outline: none;
   border-radius: 20px;
@@ -374,7 +372,18 @@ header{
   color: white;
 }
 
+.images-in-block2{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
 
+.images-in-block2 img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 
 /*fonts -----------------------------------*/
 @font-face {

@@ -8,6 +8,7 @@ import { collection, getDoc, addDoc } from '@firebase/firestore';
 export function addAnimal(Animal){
    const docRef =  addDoc(collection(db, "animals"),
    {
+   name: Animal.getName,
    race: Animal.getRace,
    size: Animal.getSize,
    description: Animal.getDescription,

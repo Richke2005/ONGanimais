@@ -7,29 +7,29 @@ const animalList = document.querySelector('#animal-list');
 
 function renderAnimal(doc){
     let li = document.createElement('li');
-    let race = document.createElement('span');
+    let name = document.createElement('h1');
+    let race = document.createElement('h3');
     let size = document.createElement('span');
     let description = document.createElement('span');
-    let isVaccinated = document.createElement('span');
+    let btnAdopt = document.createElement('button');
 
     li.setAttribute('data-id', doc.id);
-
-    race.className = 'title'
+    name.textContent = doc.data().name;
     race.textContent = doc.data().race;
-    size.innerHTML = `Altura: ${doc.data().size.height}m <br> Largura: ${doc.data().size.width}m`
+    size.innerHTML = `Altura: ${doc.data().size.height}m <br> Comprimento: ${doc.data().size.length}m`
     description.textContent =`Descrição: ${doc.data().description}` ;
-    if(doc.data().isVaccinated == true){
-        isVaccinated.textContent = `Vacinação: Sim`
-    }else{
-        isVaccinated.textContent = `Vacinação: Nâo`
-    }
 
+    li.appendChild(name)
     li.appendChild(race);
     li.appendChild(size);
     li.appendChild(description);
-    li.appendChild(isVaccinated);
+
+    btnAdopt.className = 'btns-adopt';
+    btnAdopt.setAttribute('id', doc.id);
+    btnAdopt.textContent = `Adotar ${doc.data().name}`;
 
     animalList.appendChild(li);
+    animalList.appendChild(btnAdopt);
 }
 
 

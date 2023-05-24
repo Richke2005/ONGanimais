@@ -1,15 +1,24 @@
 export class Animal{
+    name
     race
     #size
     #description
     #registerDate
     isVaccinated
-    constructor(race, size, description, isVaccinated){
+    constructor(name, race, size, description, isVaccinated){
+        this.name = name;
         this.race = race;
         this.#size = size;
         this.#description = description;
         this.isVaccinated = isVaccinated;
         this.#registerDate = new Date()
+    }
+    get getName(){
+        return this.name;
+    }
+
+    set setName(name){
+        this.name = name;
     }
 
     get getRace(){
