@@ -9,7 +9,8 @@ import { Animal } from '../../classes/animal.js'
  btnAdd.addEventListener('click', () => {
      let isVaccinated;
      const txtRace = document.getElementById('race');
-     const txtSize = document.getElementById('size');
+     const length = document.getElementById('length');
+     const height = document.getElementById('heigth');
      const description = document.getElementById('description');
 
      document.getElementsByName('isVaccinated').forEach(element => {
@@ -18,6 +19,6 @@ import { Animal } from '../../classes/animal.js'
         }
     })
 
-    const animal = new Animal(txtRace.value, txtSize.value, description.value, isVaccinated)
+    const animal = new Animal(txtRace.value, {length: length.value, height: height.value }, description.value, isVaccinated)
     addAnimal(animal);
  })

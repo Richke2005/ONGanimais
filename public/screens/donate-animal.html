@@ -23,24 +23,34 @@
            </ul>
        </Header>   
    </nav>
-
+   <script src="../js/animation.js"></script>
    <script src="../js/mobile-navbar.js"></script>
 
-    <form action="">
+   <section>
+    <div class="content-align-center">
+        <form class="donate-forms" action="">
         <label for="race">Raça</label>
         <input type="text" name="" id="race">
 
         <label for="size">Tamanho</label>
-        <input type="text" name="" id="size">
-        
+        <input type="text" name="size" id="length" placeholder="comprimento:">
+        <input type="text" name="size" id="heigth" placeholder="altura:">
+
         <label for="isVaccinated">É vacinado?</label>
-        <input type="radio" name="isVaccinated" id="rTrue" value="true">Sim
-        <input type="radio" name="isVaccinated" id="rFalse" value="false">Não 
+        <h3>Sim</h3>
+        <input type="radio" name="isVaccinated" id="rTrue" value="true">
+        <h3> Não </h3>
+        <input type="radio" name="isVaccinated" id="rFalse" value="false">
         
         <label for="description">Descrição</label>
-        <input type="text" name="description" id="description">
-        <button id="btnAdd">adicionar animal</button>
-    </form>
+        <textarea id="description" name="description" rows="8" maxlength="300"></textarea>
+
+        
+        </form>
+        <button id="btnAdd">Doar</button>
+       
+    </div>
+   </section>
     
     <script  src="../../dist/donate.bundle.js"></script>
 </body>

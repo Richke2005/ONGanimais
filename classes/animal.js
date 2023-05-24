@@ -24,9 +24,9 @@ export class Animal{
         return this.#size;
     }
 
-    setSize(width, height){
+    setSize(length, height){
         this.#size = {
-            width: width,
+            length: length,
             height: height
         }
     }
