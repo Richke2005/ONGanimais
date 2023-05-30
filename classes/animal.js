@@ -3,18 +3,18 @@ export class Animal{
     race
     #size
     #description
+    #url
     #registerDate
-    isVaccinated
-    constructor(name, race, size, description, isVaccinated){
+    constructor(name, race, size, description, url){
         this.name = name;
         this.race = race;
         this.#size = size;
         this.#description = description;
-        this.isVaccinated = isVaccinated;
+        this.#url = url
         this.#registerDate = new Date()
     }
     get getName(){
-        return this.name;
+        return this.name.toUpperCase();
     }
 
     set setName(name){
@@ -33,11 +33,8 @@ export class Animal{
         return this.#size;
     }
 
-    setSize(length, height){
-        this.#size = {
-            length: length,
-            height: height
-        }
+    set setSize(size){
+        this.#size = size
     }
 
     get getDescription(){
@@ -47,13 +44,12 @@ export class Animal{
     set setDescription(description){
         this.#description = description;
     }
-
-    get getIsVaccinated(){
-        return this.isVaccinated;
+    get getUrl(){
+        return this.#url;
     }
 
-    set setIsVaccinated(bool){
-        this.isVaccinated = bool;
+    set setUrl(url){
+        this.#url = url;
     }
 
     get getRegisterDate(){

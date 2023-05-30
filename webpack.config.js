@@ -1,7 +1,7 @@
 const path = require ('path')
 
 module.exports = {
-    mode: 'production',
+    mode: 'development',
     entry: {
         donate: './public/js/donate.js',
         adopt: './public/js/adopt.js'
