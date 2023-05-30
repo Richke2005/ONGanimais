@@ -4,6 +4,7 @@ import { collection, getDocs } from '@firebase/firestore';
 
 
 const animalList = document.querySelector('#animal-list');
+const absoluteCenter = document.querySelector('#absolute-center');
 
 function renderAnimal(doc){
     let li = document.createElement('li');
@@ -21,11 +22,13 @@ function renderAnimal(doc){
     img.setAttribute('alt', doc.data().name);
     img.classList = 'img-animal';
     size.innerHTML = `Porte: ${doc.data().size}`;
-    description.textContent =`Descrição: ${doc.data().description}` ;
+    description.textContent =`Descrição: ${doc.data().description}`;
 
     btnAdopt.className = 'btns-adopt';
     btnAdopt.setAttribute('id', doc.id);
     btnAdopt.textContent = `Adotar ${doc.data().name}`;
+
+    
 
     li.appendChild(name)
     li.appendChild(race);
@@ -35,7 +38,11 @@ function renderAnimal(doc){
     li.appendChild(btnAdopt);
     
     animalList.appendChild(li);
-    
+
+    btnAdopt.addEventListener('click', (snapshot)=>{
+       const animalId = snapshot.target.id
+       renderForm()
+    })
 }
 
 
@@ -46,3 +53,46 @@ getDocs(animalsRef).then( snapshot => {
     });
 })
 
+function renderForm(){
+    absoluteCenter.innerHTML = '';
+    const form = document.createElement('form');
+    const lblCpf = document.createElement('label');
+    const inptCpf = document.createElement('input');
+    const lblName = document.createElement('label');
+    const inptName = document.createElement('input');
+    const lblEmail = document.createElement('label');
+    const inptEmail = document.createElement('input');
+    const lblCel = document.createElement('label');
+    const inptCel = document.createElement('input');
+    const lblEnd = document.createElement('label');
+    const inptEnd = document.createElement('input');
+
+    form.className = 'donate-forms'
+
+    lblCpf.setAttribute('for', 'cpf');
+    lblCpf.textContent  = 'Digite seu cpf:';
+    inptCpf.setAttribute('id', 'cpf');
+    inptCpf.placeholder = '000000000/00';
+
+    lblName.setAttribute('for', 'name');
+    lblName.textContent = 'Digite seu nome:';
+    inptName.setAttribute('id', 'name');
+    inptName.placeholder = 'Your Name';
+
+
+
+
+    form.appendChild(lblCpf);
+    form.appendChild(inptCpf);
+    form.appendChild(lblName);
+    form.appendChild(inptName);
+
+    absoluteCenter.appendChild(form);
+    absoluteCenter.style.visibility = 'visible';
+}
+
+//       #cpf;
+//       #nome;
+//       #email;
+//       #celular;
+//       #endereco;

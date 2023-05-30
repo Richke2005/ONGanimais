@@ -404,6 +404,14 @@ header{
   object-fit: cover;
 }
 
+/*absolute center*/
+#absolute-center{
+  width: 60%;
+  height: 60%;
+  position: fixed;
+  background-color: #444444;
+  visibility: hidden;
+}
 /*fonts -----------------------------------*/
 @font-face {
     font-family: 'sweet';

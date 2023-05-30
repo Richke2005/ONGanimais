@@ -1,49 +1,49 @@
 export class Donor{
-      #id;
+      #cpf;
       #nome;
       #email;
       #celular;
-      #localizacao;
+      #endereco;
 
-     constructor(id, nome, email, celular){
+     constructor(cpf, nome, email, celular, endereco) {
         this.#id = id
         this.#nome = nome
         this.#email = email
         this.#celular = celular
+        this.#endereco = endereco
         this.dataCadastro = new Date().toUTCString()
      }
 
-     getNome(){
+     get getNome(){
       return this.#nome
      }
 
-     setNome(nome){
+     set setNome(nome){
       this.#nome = nome
      }
 
-     getEmail(){
+     get getEmail(){
       return this.#email
      }
 
-     setEmail(email){
+     set setEmail(email){
       this.#email = email
      }
 
-     getCelular(){
+     get getCelular(){
       return this.#celular
      }
 
-     setCelular(celular){
+     set setCelular(celular){
       this.#celular = celular
      }
 
-     getLocalizacao(){
-      return this.#localizacao
-      
+     get getEndereco(){
+      return this.#endereço
      }
-
-     setLocalizacao(localizacao){
-      this.#localizacao = localizacao
+     
+     set setEndereco(endereco){
+      this.#endereco = endereco
      }
    
    
