@@ -51,7 +51,10 @@ function renderAnimal(doc){
 const animalsRef = collection(db, 'animals');
 getDocs(animalsRef).then( snapshot => {
     snapshot.docs.forEach( (doc) => {
-        renderAnimal(doc);
+        if(doc.data().doado != true){
+             renderAnimal(doc);
+        } 
+       
     });
 })
 
@@ -107,6 +110,7 @@ function renderForm(animalId){
     
 
     btnAdopt.textContent = 'Adotar animal';
+    btnAdopt.className = "action-button"
 
 
     form.appendChild(lblCpf);
@@ -148,14 +152,20 @@ function renderForm(animalId){
             SecureToken : "02206e88-761b-47bb-8bb3-b5a7bb8d8e7b",
             To : dono.getEmail,
             From : "projetoacolher4@gmail.com",
-            Subject : "Adoção de Animal",
-            Body : "example of email"
+            Subject : "Adoção De Animal",
+            Body : `Olá ${dono.getNome}, nós do Acolher 4 Patas estamos muito felizes de saber que você escolheu 
+            fazer do seu lar mais alegre com um animalzinho e queremos te parabenizar por esta escolha. Porém saiba 
+            que o processo de adoção exige muita responsabilidade e queremos que o animal tenha ótima convivência ao seu lado 
+            certo!? Dito isto estaremos encaminhando e fazendo o acompanhamento da adaptação do animal através do endereço: 
+            ${dono.getEndereco.Logradouro} \n CEP: ${dono.getEndereco.CEP}.\n
+            \n \n 
+            Acolher 4 Patas.`
         }).then(
-          message => alert(message)
+          message => alert(message),
+          window.alert('verifique o spam da sua caixa de email.')
         );
 
     })
-
 }
 
 

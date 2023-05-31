@@ -7,7 +7,8 @@
 body{
     overflow-x: hidden;
     background-color: whitesmoke;
-    font-family:'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif
+    font-family:'letters';
+    font-size: 1.5rem;
 }
 
 section{
@@ -78,7 +79,7 @@ header{
     color: black;
   }
 
-  #action-button{
+  .action-button{
     display: flex;
     flex-wrap: nowrap;
     background-color: #f0a818;
@@ -210,12 +211,10 @@ header{
 
 /*pages title ------------------------------------------------*/
 .pages-title{
+    margin-top: 4%;
     margin-left: 5%;
     margin-right: 10%; 
-    margin-bottom: 5%;
-    color: var(--color1);
-    border-bottom: solid  var(--color1);
-  
+    margin-bottom: 2%;
 }
 /*blocos de conteúdo ------------------------------------------------*/
 
@@ -433,21 +432,12 @@ header{
 }
 /*fonts -----------------------------------*/
 @font-face {
-    font-family: 'sweet';
-    src: url('../fonts/Sweet Romance.ttf')
+    font-family: 'letters';
+    src: url('../fonts/Letters for Learners.ttf')
     format('truetype');
     font-weight: normal;
     font-style: normal;
   }
-
-  @font-face {
-    font-family: 'tacky';
-    src: url('../fonts/tackyshoesDEMO.otf')
-    format('opentype');
-    font-weight: normal;
-    font-style: normal;
-  }
-
 
 :root{
     --color1: #444444;
