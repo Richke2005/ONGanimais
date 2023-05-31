@@ -1,5 +1,7 @@
 import { db } from '../../src/connection'
-import { collection, getDocs } from '@firebase/firestore';
+import { collection, getDocs, getDoc, query, where, updateDoc, doc } from '@firebase/firestore';
+import { addDono } from '../../DAO/donoDAO.js';
+import { Dono } from '../../classes/dono';
 
 
 
@@ -41,7 +43,7 @@ function renderAnimal(doc){
 
     btnAdopt.addEventListener('click', (snapshot)=>{
        const animalId = snapshot.target.id
-       renderForm()
+       renderForm(animalId)
     })
 }
 
@@ -53,7 +55,9 @@ getDocs(animalsRef).then( snapshot => {
     });
 })
 
-function renderForm(){
+function renderForm(animalId){
+    
+
     absoluteCenter.innerHTML = '';
     const form = document.createElement('form');
     const lblCpf = document.createElement('label');
@@ -66,8 +70,11 @@ function renderForm(){
     const inptCel = document.createElement('input');
     const lblEnd = document.createElement('label');
     const inptEnd = document.createElement('input');
+    const lblCep = document.createElement('label');
+    const inptCep = document.createElement('input');
+    const btnAdopt = document.createElement('button');
 
-    form.className = 'donate-forms'
+    
 
     lblCpf.setAttribute('for', 'cpf');
     lblCpf.textContent  = 'Digite seu cpf:';
@@ -79,20 +86,76 @@ function renderForm(){
     inptName.setAttribute('id', 'name');
     inptName.placeholder = 'Your Name';
 
+    lblEmail.setAttribute('for', 'email');
+    lblEmail.textContent = 'Digite seu Email:';
+    inptEmail.setAttribute('id', 'email');
+    inptEmail.type = 'email';
+    inptEmail.placeholder = 'example@gmail.com';
 
+    lblCel.setAttribute('for', 'celular');
+    lblCel.textContent = 'Digite seu celular';
+    inptCel.setAttribute('id', 'celular');
+    inptCel.placeholder = '(11)90000-0000';
+
+    lblEnd.setAttribute('for', 'endereço');
+    lblEnd.textContent = 'Digite seu endereço:';
+    inptEnd.setAttribute('id', 'endereço');
+
+    lblCep.setAttribute('for', 'cep');
+    lblCep.textContent = 'Digite o cep da residência:';
+    inptCep.setAttribute('id', 'cep');  
+    
+
+    btnAdopt.textContent = 'Adotar animal';
 
 
     form.appendChild(lblCpf);
     form.appendChild(inptCpf);
     form.appendChild(lblName);
     form.appendChild(inptName);
+    form.appendChild(lblEmail);
+    form.appendChild(inptEmail);
+    form.appendChild(lblCel);
+    form.appendChild(inptCel);
+    form.appendChild(lblEnd);
+    form.appendChild(inptEnd);
+    form.appendChild(lblCep);
+    form.appendChild(inptCep);
 
+
+    form.classList.add("form-donor");
     absoluteCenter.appendChild(form);
+    absoluteCenter.appendChild(btnAdopt)
     absoluteCenter.style.visibility = 'visible';
+
+    btnAdopt.addEventListener("click", async (e)=>{
+        e.preventDefault();
+        const animalRef = await doc(db, 'animals', animalId)
+        updateDoc(animalRef, {
+            doado: true
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+        .finally(()=>{
+            console.log(`document write with id: ${animalRef.id}`)
+        })
+
+        let dono = new Dono(inptCpf.value, inptName.value, inptEmail.value, inptCel.value, {Logradouro: inptEnd.value, CEP: inptCep.value}, animalRef.id)
+        addDono(dono)
+        //send a verification email to people who adopt the animal
+        Email.send({
+            SecureToken : "02206e88-761b-47bb-8bb3-b5a7bb8d8e7b",
+            To : dono.getEmail,
+            From : "projetoacolher4@gmail.com",
+            Subject : "Adoção de Animal",
+            Body : "example of email"
+        }).then(
+          message => alert(message)
+        );
+
+    })
+
 }
 
-//       #cpf;
-//       #nome;
-//       #email;
-//       #celular;
-//       #endereco;
+

@@ -409,8 +409,27 @@ header{
   width: 60%;
   height: 60%;
   position: fixed;
-  background-color: #444444;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  background: linear-gradient( 135deg, hsl(240, 49%, 19%), rgb(62, 62, 170), rgb(112, 126, 255) );
   visibility: hidden;
+}
+
+#absolute-center .form-donor{
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.form-donor input{
+  padding: 0.4rem;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: solid 3px orange;
 }
 /*fonts -----------------------------------*/
 @font-face {
