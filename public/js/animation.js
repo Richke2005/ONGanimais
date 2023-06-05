@@ -27,7 +27,21 @@
     
     }
 
+    function animeOnScroll(target){
+        window.addEventListener("scroll", () =>{
+            const windowTop = window.pageYOffset + ((window.innerHeight * 3) /4)
+            target.forEach((element)=>{
+                 if( windowTop > element.offsetTop){
+                    element.classList.add('animate');
+                 }else{
+                    element.classList.remove('animate');
+                 }
+            })
+        })
+    }
+
 
 const header = document.querySelector('header');
-upHeader(header)
-
+upHeader(header);
+const dataAnime = document.querySelectorAll('[data-anime]')
+animeOnScroll(dataAnime)
